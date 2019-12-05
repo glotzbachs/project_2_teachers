@@ -1,0 +1,17 @@
+<h1><%=@student.first_name%> <%=@student.last_name%></h1>
+<p>------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+
+<p>
+   Age: <%=@student.age%><br>
+   Gender: <%=@student.gender%><br>
+   Grade: <%=@student.grade%><br>
+   Class: <%=@student.class%><br>
+    <br>
+    Click <a href="/students/<%=@student.id%>/edit">here</a> to edit this student
+</p>
+
+
+<form method="POST" action="/students/<%=@student.id%>/delete">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete">
+</form>

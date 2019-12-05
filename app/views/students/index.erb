@@ -1,5 +1,18 @@
-<h1>Students</h1>
+<h1> Welcome, <%=current_user.first_name%>!</h1>
+<p>------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+
+<%@students.each do |student|%>
+<p>
+<a href="/students/<%student.id%>"><%=student.name%></a>
+</p>
+<%end%>
+
 
 <br>
+<h4>To create a new student, click<a href="/students/new"> here</a>.</h4>
 
+<br>
+<br>
+<br>
+<br>
 <p> Click <a href='/logout'>here</a> to logout
