@@ -1,7 +1,7 @@
-<h1> Welcome, <%=current_user.first_name%>!</h1>
+<h1>Your Students</h1>
 <p>------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
 
-<%@students.sort_by{|name| name.last_name}.each do |student|%>
+<%@this_class.sort_by{|name| name.last_name}.each do |student|%>
 <p>
 <a href="/students/<%=student.id%>"><%=student.last_name%>, <%=student.first_name%></a>
 </p>
@@ -9,11 +9,11 @@
 
 
 <br>
-<h4>To create a new student, click <a href="/students/new">here</a>.</h4>
-<br>
-<h4>To view your students, click <a href="/students/myclass">here</a>.</h4>
-<br>
-<br>
+<h4>To add a new student, click <a href="/students/new">here</a>.</h4>
+
+
 <br>
 <br>
-<p> Click <a href='/logout'>here</a> to logout</p>
+<br>
+<br>
+<p> Click <a href='/logout'>here</a> to logout

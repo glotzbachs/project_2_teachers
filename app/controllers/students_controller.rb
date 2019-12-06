@@ -47,7 +47,7 @@ class StudentsController < ApplicationController
             if @student && @student.teacher==current_user
                 erb :'/students/edit'
             else
-                redirect '/students'
+                redirect '/sorry'
             end
         else
             redirect '/login'
@@ -68,13 +68,31 @@ class StudentsController < ApplicationController
         end
     end
 
+    get '/sorry' do
+        erb :'/students/sorry'
+    end
+
+    get '/students/myclass' do
+        if logged_in?
+            @this_class=[]
+            Student.all.each do |student|
+                if student.teacher==current_user
+                    @this_class << student
+                end
+            end
+            erb :'/students/by_class'
+        else
+            redirect '/login'
+        end      
+    end
+
     delete '/students/:id/delete' do
         if logged_in?
             @student = Student.find_by_id(params[:id])
             if @student && @student.teacher==current_user
                 @student.delete
             end
-            redirect '/students'
+            redirect '/sorry'
         else
             redirect 'login'
         end
