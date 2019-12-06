@@ -9,14 +9,18 @@ class TeachersController < ApplicationController
     end
 
     post '/signup' do
-        if params[:username] != "" && params[:email] != "" && params[:password] != ""
-            @teacher=Teacher.new(params)
+        if valid_signup? && !not_valid_username && !not_valid_email
+            @teacher=Teacher.new(params) 
             @teacher.save
             session[:teacher_id]=@teacher.id
             redirect '/students'   
         else  
-            redirect '/signup'
+            redirect '/sorry_signup'
         end
+    end
+
+    get '/sorry_signup' do
+        erb :'/teachers/sorry_signup'
     end
 
     get '/login' do
@@ -33,8 +37,12 @@ class TeachersController < ApplicationController
 			session[:teacher_id] = @teacher.id
 			redirect "/students"
 		else
-			redirect "/login"
+			redirect "/sorry_login"
         end
+    end
+
+    get '/sorry_login' do
+        erb :'/teachers/sorry_login'
     end
 
     get '/logout' do

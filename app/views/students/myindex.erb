@@ -1,9 +1,11 @@
 <h1>Your Students</h1>
 <p>------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
 
-<%@this_class.sort_by{|name| name.last_name}.each do |student|%>
+<%@students.sort_by{|name| name.last_name}.each do |student|%>
 <p>
+    <%if student.teacher==current_user%>
 <a href="/students/<%=student.id%>"><%=student.last_name%>, <%=student.first_name%></a>
+    <%end%>
 </p>
 <%end%>
 
@@ -15,5 +17,7 @@
 <br>
 <br>
 <br>
+<br>
+<p><a href='/students'>Back to All Students</a><br>
 <br>
 <p> Click <a href='/logout'>here</a> to logout
