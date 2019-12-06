@@ -3,7 +3,7 @@
 
 <%@students.each do |student|%>
 <p>
-<a href="/students/<%student.id%>"><%=student.name%></a>
+<a href="/students/<%=student.id%>"><%=student.first_name%> <%=student.last_name%></a>
 </p>
 <%end%>
 

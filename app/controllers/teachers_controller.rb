@@ -47,7 +47,7 @@ class TeachersController < ApplicationController
 
     post '/logout' do
         session.destroy
-        redirect "/login"
+        redirect "/"
     end
 
 end
