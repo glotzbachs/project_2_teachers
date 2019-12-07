@@ -1,19 +1,14 @@
-<h1>Your Students</h1>
+<h1>My Students</h1>
 <p>------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
-
-<%@students.sort_by{|name| name.last_name}.each do |student|%>
-<p>
-    <%if student.teacher==current_user%>
+<h4>To add a new student, click <a href="/students/new">here</a>.</h4>
+<br>
+<br>
+<%@students.each do |student|%>
+<p>   
 <a href="/students/<%=student.id%>"><%=student.last_name%>, <%=student.first_name%></a>
-    <%end%>
 </p>
 <%end%>
 
-<br>
-<h4>To add a new student, click <a href="/students/new">here</a>.</h4>
-
-
-<br>
 <br>
 <br>
 <br>

@@ -19,8 +19,9 @@
 
 <br>
 <br>
-<br>
-<br>
-<p><a href='/students'>Back to All Students</a><br>
+<%if @my_student%>
+<p>Go to: <a href='/students/myindex'>My Students</a></p>
+<%end%>
+<p>Go to: <a href='/students'>All Students</a><br>
 <br>
 <a href='/logout'>Logout</a></p>

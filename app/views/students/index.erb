@@ -1,17 +1,18 @@
 <h1> Welcome, <%=current_user.first_name%>!</h1>
 <p>------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
 
-<%@students.sort_by{|name| name.last_name}.each do |student|%>
+<h4>To create a new student, click <a href="/students/new">here</a>.</h4>
+<br>
+<h4>To view your students, click <a href="/students/myindex">here</a>.</h4>
+<br>
+<br>
+<%@students.each do |student|%>
 <p>
 <a href="/students/<%=student.id%>"><%=student.last_name%>, <%=student.first_name%></a>
 </p>
 <%end%>
 
 
-<br>
-<h4>To create a new student, click <a href="/students/new">here</a>.</h4>
-<br>
-<h4>To view your students, click <a href="/students/myindex">here</a>.</h4>
 <br>
 <br>
 <br>
